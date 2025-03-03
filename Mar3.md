@@ -104,9 +104,64 @@ var myvar = "my value";
 })();
 ```
 
+아래와 동일
+```
+// Example 1 
+var x; 
+console.log(x === undefined);
+x = 3; 
 
+// Example 2 
+var myvar = "my value";
+
+(function () {
+    var myvar; 
+    console.log(myvar);
+    myvar = "local value";
+})();
+```
 
 ## 함수 호이스팅 
+```
+foo();
+
+function foo(){
+    console.log("bar");
+}
+
+// 함수 표현식 
+baz();
+
+var baz = function (){
+    console.log("bar2");
+}
+```
+
+
+## 상수 
+`const` 키워드로 읽기 전용 상수를 만들 수 있음. 
+
+상수에 대한 스코프 규칙은 `let` 블록 스코프 변수와 동일.
+
+`const PI = 3.14;`
+
+```
+function f(){}
+const f = 5; 
+
+// 오류 발생
+function f() {
+    const f = 5; 
+    var g; 
+
+    // statements
+}
+```
+
+```
+const MY_OBJECT = { key: "value" };
+MY_OBJECT.key = "otherValue"
+```
 
 
 
