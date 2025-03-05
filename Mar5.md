@@ -4,7 +4,6 @@
     - `true`와 `false`
 2. null
 3. undefined 
-    - 
 4. Number
 5. BitInt
 6. String
