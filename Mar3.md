@@ -75,7 +75,6 @@ if (true){
 }
 console.log(x); // 5 
 ```
-
 이 동작을 `let` 선언을 사용해서 바뀜.
 
 ```
@@ -84,6 +83,7 @@ if (true){
 }
 console.log(y); // ReferenceError: y is not defined. 
 ```
+
 ## 변수 호이스팅 
 
 예외를 받지 않고도 나중에 선언된 변수를 참조할 수 있음. (호이스팅)
