@@ -5,7 +5,7 @@
 2. null
 3. undefined 
 4. Number
-5. BitInt
+5. BigInt
 6. String
 7. Symbol 
 
