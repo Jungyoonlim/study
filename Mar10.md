@@ -127,5 +127,22 @@ try {
 }
 
 ```
+---
+## 생성자 (generator)
+객체를 생성하기 위한 함수
+new 키워드와 함께 생성자 함수를 호출하면 새로운 객체 생성됌
+
+## async와 await이 무엇인가요
+async와 await은 Promise를 더 잘 다루기 위한 자바스크립트의 키워드와
+async 함수 내에서 await 키워드를 사용하여 Promise가 이행될 때까지 기다리고 결과 반환
+- async: 항상 Promise 반환
+- await: Promise가 아닌 값도 받을 수 있음. 
+
+
+## 클로져 
+함수와 그 함수가 선언된 스코프의 조합
+함수가 자신이 선언된 스코프 외부에서 호출되더라도 해당 스코프의 변수에 접근할 수 있는 기능을 가짐.
+주로 private 변수를 구현 / 함수 팩토리로 사용됌. 
 
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
+https://yjym33.tistory.com/150

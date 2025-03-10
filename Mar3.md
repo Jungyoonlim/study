@@ -165,5 +165,5 @@ MY_OBJECT.key = "otherValue"
 
 
 
-https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Grammar_and_types#%EC%B6%94%EA%B0%80_%EC%A0%95%EB%B3%B4
-https://blog.naver.com/sucessmh25/223096249176
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Grammar_and_types#%EC%B6%94%EA%B0%80_%EC%A0%95%EB%B3%B4
+- https://blog.naver.com/sucessmh25/223096249176
