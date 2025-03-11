@@ -133,4 +133,22 @@ for (let i of arr){
 }
 ```
 
-## closure 
+## Closure 
+Javascript는 함수의 중첩을 허용하고 내부 함수가 외부 함수 안에서
+정의된 모든 변수와 함수에 대해 전체 접근 권한 부여 
+
+```
+function outer(){
+    let outerVar = 10; 
+
+    function inner(){
+        console.log(outerVar);
+    }
+
+    return inner; 
+}
+const closureFn = outer();
+closureFn(); 
+```
+
+- `var` 대신 `let` 사용 
