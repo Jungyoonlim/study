@@ -22,6 +22,12 @@ colors.forEach((color) => console.log(color));
 ### `Object`와 `Map` 비교
 
 
+
+
+
+
+
+
 ### `Set` 오브젝트 
 `Set` 객체는 값들의 집합 
 
@@ -93,16 +99,43 @@ asyncOperation()
 
 ## 깊은 복사 / 얕은 복사 
 - Deep Copy: 객체 또는 배열의 모든 내용 복사 후 새로운 객체 / 배열 생성하는 것 
+
+```
+const original = { a: 1, b: { c: 2 } };
+const shallowCopy = Object.assign({}, original);
+const deepCopy = JSON.parse(JSON.stringify(original));
+```
+
 - Shallow Copy: 객체 또는 배열을 복사 할 때, 내부 객체의 참조만 복사하여 부분적으로 새로운 객체를 생성하는 것. 내부 객체는 동일한 메모리 주소 참조 
 
 ## 확장된 배열 메서드
 ### `map()`
+원본 배열의 모든 요소에 주어진 함수를 적용하여 새로운 배열 생성
 
+```
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(number => number * 2);
+console.log(doubled);
+```
 
 ### `filter()`
+제공된 조건을 만족하는 요소들만 포함하는 새로운 배열 생성
 
+```
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+console.log(evenNumbers);
+```
 
 ### `reduce()`
+배열의 각 요소에 대해 누산기 (Accumulator)를 사용해
+하나의 값으로 줄이는 작업 수행 
+
+```
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+console.log(sum);
+```
 
 
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Indexed_collections
