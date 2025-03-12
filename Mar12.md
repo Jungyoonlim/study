@@ -25,13 +25,43 @@ colors.forEach((color) => console.log(color));
 ### `Set` 오브젝트 
 `Set` 객체는 값들의 집합 
 
+```
+var mySet = new Set();
+mySet.add(1);
+mySet.add("some text");
+```
 
+두개가 동시에 있는 것 빼기
 
-### 배열과 `Set` 비교 
+```
+const numbers = [1,2,3,2,4,3,5];
+const uniqueNumbers = [...new Set(numbers)];
+console.log(uniqueNumbers);
+```
 
+```
+let fruits = new Set(["apple", "banana", "mango"]);
 
+fruits.forEach(fruit => console.log(fruit));
 
+for (let fruit of fruits){
+    console.log(fruit);
+}
+```
 
+Union 
+```
+const setA = new Set([1, 2, 3]);
+const setB = new Set([3, 4, 5]);
+const union = new Set([...setA, ...setB]);
+console.log(union);
+```
+
+Intersection 
+```
+const intersection = new Set([...setA].filter(x => setB.has(x)));
+console.log(intersection);
+```
 
 --- 
 # `Promise`
