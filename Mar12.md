@@ -104,6 +104,12 @@ asyncOperation()
 const original = { a: 1, b: { c: 2 } };
 const shallowCopy = Object.assign({}, original);
 const deepCopy = JSON.parse(JSON.stringify(original));
+
+// Modify the nested object in the original
+original.b.c = 42; 
+
+console.log(shallowCopy.b.c); // 42, because it's a reference copy 
+console.log(deepCopy.b.c); // 2, because it's an independent copy 
 ```
 
 - Shallow Copy: 객체 또는 배열을 복사 할 때, 내부 객체의 참조만 복사하여 부분적으로 새로운 객체를 생성하는 것. 내부 객체는 동일한 메모리 주소 참조 
