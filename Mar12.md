@@ -21,11 +21,38 @@ colors.forEach((color) => console.log(color));
 
 ### `Object`와 `Map` 비교
 
-#### 
+Objects are great for structured data and when you know your keys will be strings.
+Maps provide more flexibility and performance. 
 
 
+e.g. 
+```
+// Object for Structured Data 
+const userProfile = { 
+    name: "Alice",
+    age: 30, 
+    email: "alice@example.com"
+};
 
 
+for (let key in userProfile){
+    if (userProfile.hasOwnProperty(key)){
+        console.log(`${key}: ${userProfile[key]}`);
+    }
+}
+
+
+// For a map -- flexibility and performance 
+// keys retain their original type 
+const userMap = new Map();
+
+const keyObj = { id: 1 };
+userMap.set(keyObj, { city: "Seoul", country: "South Korea" });
+
+for (const [key, value] of userMap){
+    console.log(key, value);
+}
+```
 
 
 ### `Set` 오브젝트 
