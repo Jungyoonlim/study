@@ -114,6 +114,41 @@ console.log(deepCopy.b.c); // 2, because it's an independent copy
 
 - Shallow Copy: 객체 또는 배열을 복사 할 때, 내부 객체의 참조만 복사하여 부분적으로 새로운 객체를 생성하는 것. 내부 객체는 동일한 메모리 주소 참조 
 
+```
+const user = { 
+    username: "developer",
+    settings: { 
+        notifications: true, 
+        preferences: ["email", "sms"]
+    }
+};
+
+const shallow1 = { ...user };
+const shallow2 = Object.assign({}, user);
+
+// modifying a nested object in the shallow copy 
+shallow1.settings.notifications = false; 
+
+console.log("notifications", user.settings.notifications);
+```
+
+```
+const originalDeep = { 
+    name: "Bob",
+    info: { 
+        age: 28, 
+        hobbies: ["cycling", "chess"]
+    }
+};
+
+const deepCopy = JSON.parse(JSON.stringify(originalDeep));
+
+deepCopy.info.age = 33; 
+deepCopy.info.hobbies.push("swimming");
+
+console.log("Original Age:", originalDeep.info.age); // 28, unchanged 
+```
+
 ## 확장된 배열 메서드
 ### `map()`
 원본 배열의 모든 요소에 주어진 함수를 적용하여 새로운 배열 생성
