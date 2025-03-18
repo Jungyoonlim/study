@@ -46,6 +46,9 @@ for (let key in userProfile){
 // keys retain their original type 
 const userMap = new Map();
 
+userMap.set("name", "Alice");
+userMap.set("age", 30);
+
 const keyObj = { id: 1 };
 userMap.set(keyObj, { city: "Seoul", country: "South Korea" });
 
