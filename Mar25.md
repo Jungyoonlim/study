@@ -32,8 +32,13 @@ const dog = {breed: "German Shephard", age: 5};
 
 const dogProxy = new Proxy(dog, { 
     get(target, breed){
-        return target[breed].toUpperCase()
-    }
-})
+        return target[breed].toUpperCase();
+    },
+    set(target, breed, value){
+        console.log("changing breed to...");
+        target[breed] = value; 
+    },
+});
 
+console.log(dogProxy.breed);
 ```
