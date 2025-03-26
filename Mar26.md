@@ -35,13 +35,25 @@ const element = <Greeting name="React" />;
 ```
 
 ## Props에 대한 설명
-
+부모 컴포넌트에서 자식 컴포넌트로 데이터를 전달하는 메커니즘 
+컴포넌트 내부에서 변경 불가능 
 
 ## Props Drilling 
+컴포넌트 트리 구조에서 여러 단계를 거쳐 프롭스를 전달해야 하는 상황 
+
+### 어떻게 Props Drilling을 해결할지 
+https://frontend-fundamentals.com/code/
+
+Context API나 Redux와 같은 상태 관리 라이브러리를 사용해서 부모 자식간의 프롭스 전달 간소화 
+
+https://frontend-fundamentals.com/code/examples/item-edit-modal.html
 
 
 ## Context API 
+React 상태를 전역적으로 관리하기 위한 메커니즘
+컴포넌트 트리를 횡단하여 데이터 전달 간으 
 
+데이터의 흐름을 간소화하고 계층 구조 전체에 쉽게 공유 가능 
 
 ## HOC 
 
@@ -83,3 +95,4 @@ const element = <Greeting name="React" />;
 ## SEO 
 
 ## 주소창에 주소를 입력했을 때의 흐름 
+
