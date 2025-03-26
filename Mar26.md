@@ -55,17 +55,63 @@ React 상태를 전역적으로 관리하기 위한 메커니즘
 
 데이터의 흐름을 간소화하고 계층 구조 전체에 쉽게 공유 가능 
 
-## HOC 
+ContextAPI를 사용하면 쉽게 Props Drilling을 해결할 수 있지만, 모든 값을 ContextAPI로 관리해야하는 것이 아님. 
 
+ContextAPI를 사용하기 전에, `children` props를 이용해 컴포넌트를 전달해 depth를 줄여야. 
+
+연습 
+```
+function App({ theme }){
+    return <Header theme={theme} />;
+}
+
+function Header({ theme }){
+    return <Button theme={theme}>Click</Button>;
+}
+```
+
+Use `children` to let `App` compose `Button` directly
+
+```
+function Header({ children }){
+    return <Button>{children}</Button>;
+}
+```
+
+how to use: 
+```
+function App(){
+    return (
+        <Header>
+            <Button theme="dark">Click</Button>
+        </Header>
+    )
+}
+```
+
+## HOC 
+컴포넌트 로직을 재사용하기 위한 패턴
+함수를 인자로 받아 컴포넌트를 반환하는 함수 
+로그인 여부를 확인하거나 스타일 적용하기 위해 사용 
 
 ## Hook
 
-- `useState`
-- `useEffect` 
-- `useContext` 
-- `useRef` 
-- `useMemo` 
+### - `useState`
+함수형 컴포넌트에서 상태를 관리할 수 있는 hook 
 
+### - `useEffect` 
+부수 효과 (데이터 가져오기, 구독 설정)을 처리하는 hook 
+렌더링 후 실행 
+
+### - `useContext` 
+Context API를 사용하여 컨텍스트 값을 가져오는 hook 
+
+### - `useRef` 
+ref를 생성하고 DOM 또는 컴포넌트 인스턴스를 접근하는 데 사용 
+
+### - `useMemo` 
+성능 최적화를 위해 값을 메모이제이션하는 hook
+렌더링 성능 향상 
 
 -------------------------- 
 아래는 이번주 말까지 
