@@ -91,10 +91,57 @@ function App(){
 }
 ```
 
+```
+const { items, recommendedItems } = useItemEditModalContext();
+```
+
+- 1) `useItemEditModalContext`는 `ItemModal`과 관련된 Context에서 필요한 데이터 `items`, `recommendedItems`를 가져오는 커스텀 훅 
+- 2) Destructuring 
+`const { items, recommendedItems } = ... `는 Context에서 반환된 객체에서 `items`와 `recommendedItems`라는 속성 추출 
+- 3)  
+
 ## HOC 
 컴포넌트 로직을 재사용하기 위한 패턴
 함수를 인자로 받아 컴포넌트를 반환하는 함수 
 로그인 여부를 확인하거나 스타일 적용하기 위해 사용 
+
+https://frontend-fundamentals.com/code/examples/login-start-page.html
+예시 1) LoginStartPage 
+
+```
+function LoginStartPage(){
+    useCheckLogin({
+        onChecked: (status) => {
+            if (status === "LOGGED_IN"){
+                location.href = "/home";
+            }
+        }
+    });
+
+    return <>{/* ... */}</>;
+}
+```
+이 코드를 개선해보기 - HOC 사용 
+```
+function LoginStartPage(){
+    return <>{}</>;
+}
+export default withAuthGuard(LoginStartPage);
+
+function withAuthGuard(WrappedComponent){
+    return function AuthGuard(props){
+        const status = useCheckLoginStatus();
+
+        useEffect(() => { 
+            if (status === "LOGGED_IN"){
+                location.href = "/home";
+            }
+        }, [status]);
+        return status !== "LOGGED_IN" ? <WrappedComponent {...props} > : null;
+    };
+}
+```
+
 
 ## Hook
 
