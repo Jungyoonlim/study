@@ -1,4 +1,4 @@
-# JavaScript Proxy (복습) && 알고리즘 효율도, 필수 문법 (3,4장)
+# JavaScript Proxy (복습) && 알고리즘 효율도
 
 ## Proxy 란?
 프록시 객체는 기본 작업에 대해 사용자 지정 동작을 추가로 정의하는 데 사용됌. 
@@ -27,167 +27,81 @@ console.log(dogProxy.breed = "Labrador");
 console.log(dogProxy.breed);
 ```
 
-연습 1: 
-
-3/10 리뷰: 
-- `switch` 문 
-
-```
-switch (expression){
-    case label_1: 
-        statements_1; 
-        break; 
-    case label_2: 
-        statements_2; 
-        break;
-        ...
-    default: 
-        statements_default; 
-}
-```
-
-```
-const validationProxy = new Proxy(targetObject, { 
-    set(target, property, value){
-        switch (property){
-            // if date is `typeof` date?
-            case 'price':
-                if (typeof value !=='number' || value < 0){
-
-                }
-                break; 
-            case 'productName':
-                if (typeof value !== 'string'){
-                    throw new TypeError('Product names must be string');
-                }
-            case 'date': 
-                if (value > new Date()){
-                    throw new RangeError('Date cannot be in the future');
-                }
-                break;
-        }
-        target[property] = value;
-        return true; 
-    }
-})
-
-// usage
-validationProxy.price = 30;
-validationProxy.productName = 'Watch';
-validationProxy.date = new Date('2025-03-31'); 
-```
-
-연습 2: 
-
-Review: Map Object
-```
-const imageStates = new Map();
-
-imageStates.set('image.jpg', { 
-    lowRes: 'low-res/image.jpg',
-    fullRes: null, 
-    loading: false
-});
-```
-
-### has Trap 
-```
-const proxy = new Proxy({}, {
-    has (target, prop){
-        return imageStates.has(prop);
-    }
-})
-
-```
-
-```
-// Lazy Loader 
-// Loads low-res previews initially
-// automatically loads full-res when accessed
-// Caches loaded images 
-
-// Image() constructor
-
-const imageProxy = new Proxy(,{
-    get (images){
-        for (let img in images){
-            // maintain cache? 
-            
-            // return placeholder
-            return 
-        }
-    }
-})
-```
-
-
-Promise 복습
-
-```
-function asyncOperation(){
-    return new Promise((resolve, reject) => { 
-        setTimeout(() => { 
-            const success = true; 
-            if (success){
-                resolve("작업이 성공적으로 완료되었습니다!");
-            } else { 
-                reject("작업이 실패했습니다!");
-            }
-        }, 1000);
-    });
-}
-
-
-```
-
-
-```
-// API circuit breaker 
-
-// Automatically retries failed requests 
-// Blocks new requests for 30s after 5 failures 
-// Tracks success and failure rates 
-
-// three states: CLOSED, OPEN, HALF_OPEN
-function createCircuitBreak(apiFn){
-    let state = 'CLOSED';
-    let failureCount = 0; 
-    let cooldownEnd = 0; 
-
-    return new Proxy(apiFn, { 
-
-
-        return new Promise(() => { 
-            setTimeout(() => { 
-                if (success){
-
-                } else { 
-                    reject()
-                }
-            }, )
-        })
-    })
-
-}
-
-
-```
-
-
-```
-function timeTravelObject(obj){
-
-    return new Proxy( ,{
-        set(){
-
-        },
-        get(){
-            
-        }
-    })
-}
-
-```
-
 -------------------------------
 
+## 알고리즘의 효율 분석 
+
+### Time Complexity / 시간 복잡도
+알고리즘의 성능을 나타내는 지표 
+입력 크기에 대한 연산 횟수의 상한 
+낮으면 낮을수록 좋음 
+
+### 1차원 배열 검색 
+#### 값을 가장 빨리 찾는 경우 
+검색 시작 위치에 찾을 값이 바로 있는 경우 
+
+#### 값을 가장 늦게 찾는 경우 
+아예 찾으려는 값이 없거나 가장 마지막에 위치하는 경우 
+
+## 알고리즘 수행 시간 측정하는 방법
+
+### 절대 시간을 측정하는 방법
+시간을 측정하면 됌. 
+배열에서 검색하는 프로그램을 작성한 다음 프로그램을 실행하여 결과가 나올 때까지 시간을 측정.
+
+### 시간 복잡도 측정하는 방법 
+알고리즘이 시작한 순간부터 결괏값이 나올 때까지의 연산 횟수 
+시간 복잡도를 측정한 결과는, 최선, 보통, 최악의 경우로 나눔 
+
+
+### 예시
+1. 3x^2 + 5x + 6
+O(x^2)
+
+
+2. x + logx
+O(x)
+증가폭이 더 낮은 로그 함수는 사라지고 다항함수만 남음 
+
+
+3. 2^x + 10x^5 + 5x^2 
+O(2x^2)
+
+지수함수 (x^2) 는 다항함수보다 빠르게 증가하므로 지수함수만 남음 
+
+4. 5x^2 - 6x 
+O(x^2)
+
+---------------
+### 함수 종류
+1. 지수함수 
+예) 2^x
+
+2. 다항함수
+예) 3x^2
+
+3. 로그함수
+예) logx 
+
+
+### 시간 복잡도 계산해보기
+### 별 찍기 문제 
+숫자 N을 입력받으면 N번째 줄까지 별을 1개부터 N개까지 늘려가며 출력하라는 것 
+
+```
+f(N) = 1 + 2 + ... + N = N(N+1)/2
+```
+
+### 박테리아 수명 문제 
+초기 박테리아 세포 개수가 N일때 해마다 세포 개수가 이전 세포 개수의 반으로 준다면 
+언제 모든 박테리아가 죽을지 계산 
+
+16 -> 8 -> 4 -> 2 -> 1 -> 0
+
+5년이면 소멸됌.
+
+(0.5)^Y * N 는 (N/2)^Y <= 1
+2^(Y) >= N
+Y >= log_2(N)
+
+그래서 O(logN) 의 시간 복잡도를 가지고 있음 
