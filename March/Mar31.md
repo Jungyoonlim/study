@@ -83,10 +83,22 @@ Review: Map Object
 ```
 const imageStates = new Map();
 
-
-
+imageStates.set('image.jpg', { 
+    lowRes: 'low-res/image.jpg',
+    fullRes: null, 
+    loading: false
+});
 ```
 
+### has Trap 
+```
+const proxy = new Proxy({}, {
+    has (target, prop){
+        return imageStates.has(prop);
+    }
+})
+
+```
 
 ```
 // Lazy Loader 
@@ -106,14 +118,27 @@ const imageProxy = new Proxy(,{
         }
     }
 })
-
-
-
-
-
 ```
 
 
+Promise 복습
+
+```
+function asyncOperation(){
+    return new Promise((resolve, reject) => { 
+        setTimeout(() => { 
+            const success = true; 
+            if (success){
+                resolve("작업이 성공적으로 완료되었습니다!");
+            } else { 
+                reject("작업이 실패했습니다!");
+            }
+        }, 1000);
+    });
+}
+
+
+```
 
 
 ```
@@ -123,16 +148,46 @@ const imageProxy = new Proxy(,{
 // Blocks new requests for 30s after 5 failures 
 // Tracks success and failure rates 
 
-// 
+// three states: CLOSED, OPEN, HALF_OPEN
+function createCircuitBreak(apiFn){
+    let state = 'CLOSED';
+    let failureCount = 0; 
+    let cooldownEnd = 0; 
 
-const APIProxy = new Proxy(,{
-    
-})
+    return new Proxy(apiFn, { 
+
+
+        return new Promise(() => { 
+            setTimeout(() => { 
+                if (success){
+
+                } else { 
+                    reject()
+                }
+            }, )
+        })
+    })
+
+}
+
 
 ```
 
 
+```
+function timeTravelObject(obj){
 
+    return new Proxy( ,{
+        set(){
+
+        },
+        get(){
+            
+        }
+    })
+}
+
+```
 
 -------------------------------
 
