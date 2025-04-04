@@ -6,3 +6,4 @@
 N이 매우 작을 때 (N $\leq 20$)
 예:
 - $\mathcal{O}(2^{N}) \rightarrow N \leq 20$ 
+- $\mathcal{O}{N!} \rightarrow N \leq 10$
