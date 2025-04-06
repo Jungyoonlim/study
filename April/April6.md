@@ -38,7 +38,7 @@ test = list(map(int, input().split()))
 ```
 
 ### Time Complexity 
-O()
+$\mathcal{O}(N+M)$
 
 
 
