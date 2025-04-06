@@ -3,18 +3,12 @@
 https://www.acmicpc.net/problem/10816
 
 
-## 배운 것: 
-
-```python 
+```python
+# use hashmap
 N = int(input())
 card = list(map(int, input().split()))
 M = int(input())
 test = list(map(int, input().split()))
-```
-
-
-```python
-# use hashmap
 
 hmap = {}
 for i in card:
@@ -26,10 +20,43 @@ for i in card:
         hmap[i] = 1 
 
 
-for i in range(M):
-
-    # return the value of each freq 
-    return 
-
+for i in test:
+    # check if i is in hmap
+    if i in hmap: 
+        return hmap[i]
+    else: 
+        print(0)
 ```
 
+## 배운 것: 
+
+```python 
+N = int(input())
+card = list(map(int, input().split()))
+M = int(input())
+test = list(map(int, input().split()))
+```
+
+### Time Complexity 
+O()
+
+
+
+## Improvements using `collections.Counter` 
+```python
+import sys 
+from collections import Counter 
+
+N = int(sys.stdin.readline())
+card = list(map(int, sys.stdin.readline().split()))
+M = int(sys.stdin.readline())
+test = list(map(int, sys.stdin.readline().split()))
+
+hmap = Counter(card) # use counter for concise freq counting
+
+results = []
+for i in test:
+    results.append(hmap[i])
+
+print(" ".join(map(str, results)))
+```
