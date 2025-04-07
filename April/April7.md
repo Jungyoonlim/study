@@ -62,6 +62,28 @@ https://www.acmicpc.net/problem/11399
 # LC 
 https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&envId=leetcode-75
 
+My ans: 
+```python 
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        i, j = 0, 0 
+        merged = []
+     
+        while i < len(word1) and j < len(word2):
+            if i < j:
+                merged.append(word1[i])
+                i += 1
+            else: 
+                merged.append(word2[j])
+                j += 1 
+        
+        # append remainder
+        merged.join(word1[i:])
+        merged.join(word2[j:])
+
+        return merged 
+```
+
 ```python 
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
