@@ -23,16 +23,31 @@ for i in range(M):
 # read the four lines at the bottom and query on hashmap
  # 4 sites
 for j in range(N):
-    site = input().split()
+    site = input()
     # print passwords in a  row 
-    print dic[site]
+    print(dic[site])
+```
 
 
+
+### What I learned
+
+```python
+# fixes 
+
+# 1. input handling 
+site = input().split()
+# is wrong but instead use 
+
+
+# 2. use 
+print(dic[site])
+# instead
+print dic[site]
 
 
 ```
 
-### What I learned
 Unpack the list directly into two variables: 
 
 ```
