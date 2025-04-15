@@ -93,13 +93,57 @@ def bsearch(arr, target):
 
 ## 6. BFS / DFS 
 
-### BFS 
-```python 
+### BFS
+Explores the graph level by level
+1. start from a source node
+2. visit all neighbors at the current level
+3. move on to the next level of neighbors 
 
+#### How it works 
+1. Initialize a queue with the start node 
+2. Maintain a visited set to avoid revisiting nodes
+3. Pop the front of the queue 
+- Mark it as visited
+- Process it 
+- Enqueue all of its unvisited neighbors 
+4. Repeat until the queue is empty 
+
+Code: 
+```python 
+from collections import deque 
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start]) # Initialize Queue with the start node
+    
+    visited.add(start)
+
+    while queue: 
+        vertex = queue.popleft()
+        print(vertex)
+
+        for nei in graph[vertex]:
+            if nei not in visited: 
+                visited.add(nei)
+                queue.append(nei)
 ```
 
+### Time Complexity of BFS 
+- $\mathcal{O(V + E)}$ for a graph with V vertices and E edges. 
+
+
 ### DFS 
+Explores as far as possible along one path before backtracking. 
+
+Code:
 ```python 
+def dfs(graph, start, visited=None):
+    if visited is None: 
+        visited = set()
+    visited.add(start)
+    print(start)
+
+    for nei in graph[start]:
 
 ```
 
@@ -136,6 +180,33 @@ def bsearch(arr, target):
 
 ### Queue 
 
+
+
+### Heap 
+
+
+### BST 
+
+
+### Dijkstra 
+
+
+### Floyd 
+
+
+### Priority Queue 
+
+
+### Prefix Sum
+
+
+### Flood Fill
+
+
+### Union Find 
+
+
+### Segment Tree 
 
 
 ## 요약: 문제 유형별 추천 알고리즘
