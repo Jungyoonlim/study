@@ -40,13 +40,10 @@ class Solution:
         len_of_flowerbed = len(flowerbed)
         num_of_flowers = 0 
         for i in range(len_of_flowerbed):
-            if i == 0 or i == len_of_flowerbed-1: 
-                i += 1 
+            if 
 
             if flowerbed[i] == 0 and flowerbed[i+1] == 0 and flowerbed[i-1] == 0:
-                num_of_flowers += 1
-                i += 1
-        
+                num_of_flowers += 1        
         if num_of_flowers >= n:
             return True
         else: return False 
@@ -57,3 +54,9 @@ class Solution:
 ## 피보나치 함수 
 
 https://www.acmicpc.net/problem/1003
+
+
+## 벌집
+
+https://www.acmicpc.net/problem/2292
+
