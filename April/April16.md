@@ -10,6 +10,8 @@ N = [int(input()) for _ in range(T)]
 
 dp = [0] * (N+1)
 
+for i in range()
 
 
+print [for _ in range(T)]
 ```
