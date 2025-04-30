@@ -10,7 +10,8 @@ M, N, K = map(int, input().split())
 X, Y = map(int, input().split())
 
 # 2D 리스트 배열을 만들기 
-arr = [][]
+[[0] * M for _ in range(N)]
+
 
 # 2D 리스트 배열 X, Y로 채우기..?
 for _ in range(K):
@@ -23,7 +24,11 @@ for _ in range(K):
 
 - 배추밭에서 배추흰지렁이가 필요한 최소 마리 수를 구하는 것 
 - 배추는 상하좌우로 인접하면 하나의 군집 
-- 
+- 배추들이 모여있는 곳에는 배추흰지렁이가 한 마리만 있으면 됌 
+- 주변을 살펴봐서 0이면 끝난 것?
+
+
+
 
 ## Mistakes 
 - 2D list 만들기. `[[0] * M for _ in range(N)]`처럼 만들어야 함 
