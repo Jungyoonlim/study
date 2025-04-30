@@ -28,3 +28,15 @@
 
 
 ```
+
+### 2. 플렉스박스 
+- 1차원 레이아웃 (행/열)
+- `justify-content`, `align-items`, `flex`로 정렬, 크기 제어.
+
+### 3. 그리드
+- 2차원 레이아웃
+- `grid-template`, `minmax`, `auto-fit`으로 복잡한 구조 구현.
+
+### 4. 포지셔닝 
+- `position`으로 요소 위치 제어
+- `z-index`로 쌓임 순서 조정. 
