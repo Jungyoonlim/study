@@ -26,16 +26,14 @@
 
 - 출처: https://developer.mozilla.org
 
-```css
-
-
-```
 
 ### 2. 플렉스박스 
 - 1차원 레이아웃 (행/열)
 - `justify-content`, `align-items`, `flex`로 정렬, 크기 제어.
 - 두개의 축이 있음, `flex-direction`에 의해 정의됌.
     - `row`, `row-reverse`, `column`, `column-reverse`
+
+
 
 ### 3. 그리드
 - 2차원 레이아웃
