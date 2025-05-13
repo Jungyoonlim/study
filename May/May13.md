@@ -86,3 +86,23 @@ export default function throttle(func, wait) {
 ```
 
 When to choose throttle: when you need periodic updates at fixed intervals 
+
+
+
+## Flatten 
+A function `flatten` that returns a newly-created array with all sub-array elements concatenated recursively into a single level. 
+
+### 1. Iterative
+
+
+### 2. Iteration using `Array.prototype.some`
+
+
+
+### 3. Recursion using `Array.prototype.reduce`
+
+
+### 4. Flatten the array in-place 
+
+
+### 5. Recursive approaching using `flatMap` 
