@@ -13,18 +13,28 @@ export default function debounce(func, wait=0){
         const context = this; 
         clearTimeout(timeoutID);
 
-
-    }
-
-
+        timeoutID = setTimeout(function (){
+            timeoutID = null; 
+            func.apply(context, args);
+        }, wait); 
+    };
 }
-
 ```
 
 ```typescript
+export default function debounce(func: Function, wait: number = 0){
+    let timeoutID: ReturnType<typeof setTimeout> | null = null; 
 
+    return function (this: any, ...args: any[]){
+        const context = this; 
+        clearTimeout(timeoutID ?? undefined);
 
-
+        timeoutID = setTimeout(function (){
+            timeoutID = null; 
+            func.apply(context, args);
+        }, wait); 
+    }
+}
 ```
 
 ## `this` in JavaScript 
