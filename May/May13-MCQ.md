@@ -1,10 +1,16 @@
 # MCQ in JavaScript, WebAPIs, CSS, HTML, Browser, Performance, I8
 
 ## 1. Describe the difference between a cookie, `sessionStorage`, and `localStorage` in browsers. 
+All are mechanisms of storing data on the client, the user's browser in this case. 
+- cookie: Suitable for server-client communication, small storage capacity, can be persistent or session-based, domain specific. 
+- `localStorage`: Suitable for long-term storage, data persists even after the browser is closed, accessible across all tabs and windows of the same origin, highest storage capacity among the three. 
+- `sessionStorage`: Suitable for temporary data within a single page session , data is cleared when the tab or window is closed, has a higher storage capacity compared to cookies. 
 
 ## 2. Describe the difference between `<script>`, `<script async>` and `<script defer>`
 
 ## 3. Explain the concept of hoisting in JS.
+A JS mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase. 
+
 
 ## 4. What are the differences between JavaScript variables created using `let`, `var`, or `const`?
 
