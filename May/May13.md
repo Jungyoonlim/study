@@ -60,3 +60,29 @@ call = callbackFn(
     this
 );
 ```
+
+## Throttle 
+A technique used to control how many times we allow a function to be executed over time. 
+
+### Throttle vs. Debounce
+- Throttle - Fires at regular intervals
+- Debounce - Fires after quiet period 
+
+```javascript 
+export default function throttle(func, wait) {
+    let shouldThrottle = false; 
+    return function (...args){
+        if (shouldThrottle){
+            return;
+        }
+        shouldThrottle = true; 
+        setTimeout(function(){
+            shouldThrottle = false;
+        }, wait);
+
+        func.apply(this, args);
+    }
+}
+```
+
+When to choose throttle: when you need periodic updates at fixed intervals 
