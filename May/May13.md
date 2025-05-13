@@ -43,3 +43,20 @@ export default function debounce(func: Function, wait: number = 0){
 
 
 http://medium.com/@griffinmichl/implementing-debounce-in-javascript-eab51a12311e
+
+## Array.prototype.reduce 
+
+```javascript
+const sum = [1, 2, 3, 4].myReduce((acc, cur) => acc + cur, 0); 
+```
+
+```javascript
+callbackFn(accumulator, currentValue, currentIndex, array)
+
+call = callbackFn(
+    acc,
+    this[k],
+    k, 
+    this
+);
+```

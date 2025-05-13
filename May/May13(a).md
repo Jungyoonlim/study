@@ -59,3 +59,78 @@ export default function debounce(
 }
 ```
 
+## `this` 
+JavaScript에서 `this`는 함수가 실행되는 문맥을 가르킴.
+
+### 1. 전역 컨텍스트 
+함수나 객체 밖에서 사용하면 전역 객체.
+- 브라우저에서: window
+- Node.js: global
+
+```javascript
+console.log(this); // window
+```
+
+### 2. 객체의 메서드 내부 
+객체의 메서드로 호출될 때, `this`는 객체 자신을 가리킴. 
+
+```javascript
+const person = { 
+    name: "Alice",
+    greet: function(){
+        console.log(this.name); // this는 person
+    }
+};
+
+person.greet();
+```
+
+### 3. 일반 함수 내부 
+일반 함수가 단독으로 호출될 때, `this`는 전역 개체를 가리킴. 
+
+```javascript
+function show(){
+    console.log(this);
+}
+
+show(); // 브라우저: window, 엄격 모드: undefined
+```
+
+### 4. 생성자 함수 내부 
+```javascript
+function Car(brand){
+    this.brand = brand; 
+}
+
+const myCar = new Car("Toyota");
+console.log(myCar.brand); // Toyota 
+```
+
+### 5. 화살표 함수 
+바깥 스코프의 `this`를 그대로 사용.
+
+```javascript
+const obj = { 
+    value: 42, 
+    show: function(){
+        const arrow = () => {
+            console.log(this.value); // this는 show의 this 그대로 사용 
+        };
+        arrow();
+    }
+};
+
+obj.show(); // 출력: 42 
+```
+
+### 6. 명시적 바인딩: `call`, `apply`, `bind` 
+
+```javascript 
+function sayHello(){
+    console.log(this.name);
+}
+
+const user = { name: "Bob" };
+
+sayHello.call(user); // call Bob 
+```
