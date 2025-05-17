@@ -77,7 +77,7 @@ ROOT_URLCONF를 통해 `urls.py`로 이동
 ```python
 # django_project/urls.py
 from django.contrib import admin 
-from django.urls import path 
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -131,7 +131,7 @@ urlpatterns = [
 ```python
 # django_project/myapp/urls.py
 
-app_name = 'myapp
+app_name = 'myapp'
 
 urlpatterns = [
     path('detail_list/<int:post_id>/', views.detail, name='detail'),
@@ -245,7 +245,7 @@ Template은 HTML 파일이고, App폴더/templates/App명/템플릿 파일처럼
 
 ## 5. Rest API (Django REST Framework)
 
-DRF Serializer
+### 1. DRF Serializer
 
 ```python
 # serializers.py
@@ -261,10 +261,15 @@ class PostSerializer(serializers.ModelSerializer):
 모바일, React 클라이언트를 위한 JSON API가 필요할 때 Django Rest Framework를 붙이고,
 URL -> ViewSet -> Serializer -> Model 흐름으로 확장.
 
+### 2. `views_api.py`
+
+
+### 3. `urls_api.py`
+
 더 공부거리:\
 - CBV mixin,
 - LoginRequiredMixin / PermissionRequiredMixin
-- Celery + Redis, selected_related/prefetch_related, pytest-django
+- Celery + Redis, select_related/prefetch_related, pytest-django
 
 
 참고:
