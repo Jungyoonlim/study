@@ -38,7 +38,7 @@ for (var i = 1; i <=3; i++){
 ```typescript 
 export default function debounce(
     func: Function,
-     wait: number =0
+    wait: number =0
 ): Function {
     let timeoutID: ReturnType<typeof setTimeout> | null = null; 
     return function (this: any, ...args: any[]){
