@@ -263,10 +263,37 @@ URL -> ViewSet -> Serializer -> Model 흐름으로 확장.
 
 ### 2. `views_api.py`
 
+```python
+from rest_framework.viewsets import ModelViewSet
+from .models import Post 
+from .serializers import PostSerializer
+
+class PostViewSet(ModelViewSet):
+    """
+    /api/posts/ (GET, POST)
+    /api/posts/{id}/ (GET, PUT/PATCH, DELETe)
+    """
+    queryset = Post.objects.all().order_by('-created_at')
+    serializer_class = PostSerializer
+```
 
 ### 3. `urls_api.py`
 
-더 공부거리:\
+```python
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views_api import PostViewSet
+
+router = DefaultRouter()
+router.register(r'posts', PostViewSet, basename='post')
+
+urlpatterns = [
+    path('api/', include(router.urls)),
+]
+```
+
+더 공부거리:
+
 - CBV mixin,
 - LoginRequiredMixin / PermissionRequiredMixin
 - Celery + Redis, select_related/prefetch_related, pytest-django
