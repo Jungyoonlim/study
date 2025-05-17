@@ -1,12 +1,16 @@
 # Django
 
+Django는 MVT 구조를 사용합니다.
+
 ## MVT 패턴
 
 Model, View, Controller
 
-- Model: 데이터 베이스에 저장되는 데이터와 관련된 부분 정의
-- View: 프로그램 로직이 동작하여 데이터를 가공, 처리한 결과를 템플릿에 전달
+- Model: 데이터 베이스에 저장되는 데이터와 관련된 부분 정의 / DB 스키마와 비즈니스 규칙.
+- View: 프로그램 로직이 동작하여 데이터를 가공, 처리한 결과를 템플릿에 전달. 요청-응답 흐름과 로직을 담당. (전통 MVC의 Controller 역할).
 - Template: 사용자에게 보여지는 UI 부분
+
+Django 프레임워크 자체가 URL -> View 매핑 / 미들웨어를 담당하므로 별도 Controller 파일이 없습니다.
 
 ## 0. 시작하기
 
@@ -28,7 +32,7 @@ from django.db import models
 
 class Person(models.Model):
     name = models.CharField(max_length=30)
-    phone_name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50)
 ```
 
 ORM -->
@@ -47,7 +51,7 @@ CREATE TABLE person (
 데이터베이스 변경사항 반영
 
 ```terminal
-python manage.py makemigrations # 데이터베이스 변경사항 
+python manage.py makemigrations # 데이터베이스 변경사항,  0001_initial.py 생성
 python manage.py migrate # 데이터베이스 변경사항 반영
 ```
 
@@ -77,6 +81,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),
 ]
 ```
 
@@ -89,12 +94,6 @@ urlpatterns = [
 URLconf 모듈을 개별 애플리케이션 단위로 계층적인 URL 패턴 설계 가능.
 
 - 기본 형태
-
-```python
-
-
-```
-
 - API 집합
 - 버전별
 - tasks 앱
@@ -111,7 +110,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('myapp.', include('myapp.urls')),
+    path('myapp/', include('myapp.urls')),
 ]
 ```
 
@@ -119,7 +118,11 @@ urlpatterns = [
 
 ```python
 {% for post in posts %}
-    <li><a href="/myapp/{{ post.id }}">{{ post.title }}</a></li>
+  <li>
+    <a href="{% url 'myapp:detail' post.id %}">  <!-- /myapp/… 대신 -->
+      {{ post.title }}
+    </a>
+  </li>
 {% endfor %}
 ```
 
@@ -143,16 +146,32 @@ URL에 매핑된 뷰가 호출되면 뷰는 해당 애플리케이션의 로직�
 from django.http import HttpResponse
 import datetime
 
-def current_datetime(request):
-        now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
+def current_datetime(request): 
+    now = datetime.datetime.now() 
+    html = f"<html><body>It is now {now}.</body></html>" 
     return HttpResponse(html)
 ```
 
 ```python
-# detail.html
+# ────────── Class-Based View 예시 ──────────
+from django.views.generic import ListView
+from .models import Post
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts_box'
+```
+
+제네릭 CBV를 쓰면 CRUD 화면을 수십 줄 → 한두 줄로 단축할 수 있음.
+
+```html
+<!-- detail.html -->
 <form actions="{% url 'polls:vote' question.id %}" method="post">
 
+```
+
+```python
 # urls.py
 path('polls/<int:question_id>/vote/', views.vote, name='vote')
 
@@ -189,6 +208,18 @@ def post_list(request):
 {% endfor %}
 ```
 
+```python
+from django import forms
+from .models import Post
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model  = Post
+        fields = ['title', 'content']
+```
+
+`request.POST`를 직접 만지는 대신 폼 클래스로 검증 / CSRF 방어를 한번에 처리.
+
 ## 4. Template - 화면 UI 정의
 
 View로부터 전달받은 데이터를 템플릿에 적용하여 HTML를 만드는데 사용.
@@ -206,6 +237,35 @@ Template은 HTML 파일이고, App폴더/templates/App명/템플릿 파일처럼
     <li>{{ item }}</li>
 {% endfor %}
 ```
+
+### 4-1. 정적 / 업로드 파일.
+
+1. **STATICFILES_DIRS / STATIC_URL** : CSS·JS 배포용 collectstatic후 Nginx, S3 등에 서빙.
+2. **MEDIA_ROOT / MEDIA_URL** : 사용자가 업로드한 이미지 저장 > 개발 단계에서는python manage.py runserver가 자동 서빙하지만, 운영 환경에서는 S3 + CloudFront 같은 스토리지를 별도로 두는 것이 일반적입니다.
+
+## 5. Rest API (Django REST Framework)
+
+DRF Serializer
+
+```python
+# serializers.py
+from rest_framework import serializers
+from .models import Post 
+
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ['id', 'title', 'created_at']
+```
+
+모바일, React 클라이언트를 위한 JSON API가 필요할 때 Django Rest Framework를 붙이고,
+URL -> ViewSet -> Serializer -> Model 흐름으로 확장.
+
+더 공부거리:\
+- CBV mixin,
+- LoginRequiredMixin / PermissionRequiredMixin
+- Celery + Redis, selected_related/prefetch_related, pytest-django
+
 
 참고:
 https://bentist.tistory.com/49
