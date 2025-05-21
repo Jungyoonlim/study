@@ -37,5 +37,51 @@ Redis 등을 사용해 실시간 카운트 구현
 서비스 장애/지연/버그를 실시간으로 파악, 사전에 대응.
 Sentry, Datadog으로 에러/지연/트래픽/DB상태 모니터링. 
 
+## 데이터베이스 샤딩 또는 파티셔닝이란?
+
+데이터가 너무 커질 때, 한 DB에 다 넣지 않고 여러 DB에 분산하여 저장하는 기술 
+
+## Index란?
+데이터베이스에서 검색 속도를 빠르게 해주는 자료구조 
+자주 조회되는 칼럼에 인덱스 추가 
+
 
 # SQL / Postgres
+
+## SQL에서 SELECT, INSERT, UPDATE, DELETE이란?
+
+- SELECT: 데이터 조회
+- INSERT: 새 데이터 추가
+- UPDATE: 기존 데이터 수정
+- DELETE: 데이터 삭제 
+
+## 데이터베이스 정규화 (Normalization) 이란?
+
+중복 데이터를 최소화하고 데이터 무결성을 높이기 위해 테이블을 논리적으로 분석하는 것. 
+
+## SQL에서 조인의 종류는?
+
+- INNER JOIN: 
+- LEFT JOIN: 
+- RIGHT JOIN: 
+- FULL OUTER JOIN: 
+
+## Primary Key와 Foreign Key란?
+
+- Primary Key: 각 레코드를 고유하게 식별 
+- Foreign Key: 다른 테이블의 Primary Key를 참조하는 키 
+
+## Postgres에서 데이터 타입으로 주로 쓰는 것 
+
+- Integer: 정수
+- Text: 긴 문자열
+- Varchar: N글자 제한 문자열
+- Boolean: true/false
+- TIMESTAMP: 날짜/시간
+
+## 가장 기본적인 SELECT 문법은?
+
+```sql
+SELECT 컬럼명 FROM 테이블명 WHERE 조건; 
+```
+
