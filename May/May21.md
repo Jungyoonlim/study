@@ -6,7 +6,6 @@
 서버 한 곳에 트래픽이 몰리는 것을 방지하고 글로벌 유저도 빠른 속도로 UI 체험 가능.
 
 
-
 ## Redis란?
 
 메모리 기반 초고속 데이터베이스 / 캐시로, 자주 접근되는 데이터 (인기 검색어, 실시간 트렌딩 스크린)을 임시로 저장해서 DB에 불필요한 부하를 줄이고 응답속도를 극적으로 빠르게 만들 수 있음.
@@ -76,7 +75,12 @@ Sentry, Datadog으로 에러/지연/트래픽/DB상태 모니터링.
 ## Primary Key와 Foreign Key란?
 
 - Primary Key: 각 레코드를 고유하게 식별 
+
+Users 테이블의 UserID 컬럼이 primary key라면, 각 사용자마다 고유한 UserID를 가집니다.
+
 - Foreign Key: 다른 테이블의 Primary Key를 참조하는 키 
+
+Orders 테이블의 CustomerID 컬럼이 foreign key라면, 이는 Customers 테이블의 primary key인 CustomerID를 참조합니다.
 
 ## Postgres에서 데이터 타입으로 주로 쓰는 것 
 
