@@ -54,3 +54,34 @@ void main() {
 [CPU] 정점 데이터 → [Vertex Shader] → 정점 위치 결정 → 
 [Rasterization] 픽셀화 → [Fragment Shader] → 픽셀 색상 결정 → 화면 출력
 ```
+정점 셰이더: 정점 데이터를 GPU에 전달 후 위치 결정
+
+래스터화: 정점 정보를 기반으로 화면상 픽셀(프래그먼트)로 변환
+
+프래그먼트 셰이더: 각 픽셀 색상 결정 및 효과 처리
+
+최종 결과가 화면에 출력됩니다.
+
+
+
+## 자바스크립트 예제 
+
+```javascript
+// WebGL 컨텍스트 초기화
+const canvas = document.querySelector('canvas');
+const gl = canvas.getContext('webgl');
+
+// 정점 셰이더 소스
+const vertexShaderSrc = `
+attribute vec3 aPosition;
+void main() {
+    gl_Position = vec4(aPosition, 1.0);
+}`;
+
+// 프래그먼트 셰이더 소스
+const fragmentShaderSrc = `
+precision mediump float;
+void main() {
+    gl_FragColor = vec4(1.0, 0.5, 0.0, 1.0); // 오렌지색
+}`;
+```
