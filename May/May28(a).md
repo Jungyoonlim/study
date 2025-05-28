@@ -6,6 +6,7 @@ Delays invoking a function until after a specified wait time has elapsed since t
 
 ```js
 function debounce(fn, wait){
+    // initialize timeoutId in the outer closure 
     let timeoutId; 
 
     return function debounced(...args){
@@ -14,6 +15,9 @@ function debounce(fn, wait){
 
         // schedule a brand-new timer to go off after `wait` 
         timeoutId = setTimeout(() => {
+            // when the timer is fired, call the original fn with
+            // this bound to whatever context debounced was called with
+            // args as the arguments captured in the last invocation 
             fn.apply(this, args);
         }, wait);
     };
