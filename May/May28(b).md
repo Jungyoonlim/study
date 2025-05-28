@@ -1,16 +1,20 @@
 # Questions to anticipate
 
 ## JavaScript 
+
+### Explain how a closure works. Why does your debounce function hold onto its timer ID?
+
+### Implement `debounce(fn, wait)` and discuss leading vs. trailing edge options. 
+
+### How would you throttle a scroll handler for 60 fps animations?
+
+### Write a `chunk(array,size)` function. 
+
+### Implement `unique(array)` or `groupBy(array, keyFn)` using `reduce`.
+
 ### What's the difference between a `setTimeout` callback and a resolved `Promise.then`?
 
 ### Explain how the JS event loop handles I/O and timers.
-
-
-
-
-
-
-
 
 
 ## TypeScript 
@@ -55,3 +59,6 @@
 ### How do you model many-to-many in Postgres, and how do you query it?
 
 
+## Front-End System Design 
+
+### When would you reach for Redux for component state?
