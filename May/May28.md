@@ -99,3 +99,70 @@ Use EXPLAIN ANALYZE, add appropriate indexes, optimize JOINs, reduce data scanne
 
 ## What is normalization?
 Process of organizing data to reduce redundancy and improve data integrity. 
+
+# What are the normal forms?
+
+- 1NF (atomic values)
+- 2NF (no partial dependencies)
+- 3NF (no transitive dependencies)
+
+# What is denormalization?
+
+Intentionally adding redundancy to improve query performance 
+
+# What is transaction?
+
+A unit of work that is atomic, consistent, isolated, and durable (ACID)
+
+# What are ACID properties?
+
+- Atomicity: All or nothing
+- Consistency: Valid state to valid state
+- Isolation: Concurrent transactions don't interfere
+- Durability: Committed changes persist 
+
+# What is a view?
+
+A virtual table based on a SELECT query.
+
+# What is a stored procedure?
+
+Precompiled SQL code that can be saved and reused.
+
+# What are aggregate functions?
+
+Functions that perform calculations on sets: COUNT, SUM, AVG, MIN, MAX
+
+# How do you use GROUP BY?
+
+Group rows with same values in specified columns, often used with aggregate functions.
+
+# What is HAVING clause?
+
+Filters groups after GROUP BY 
+
+## What is a subquery?
+
+A query nested inside another query.
+
+## What is the difference between DELETE and TRUNCATE?
+
+- DELETE: Removes specific rows, can be rolled back, triggers fire
+- TRUNCATE: Removes all rows, faster, cannot be rolled back
+
+## What are window functions?
+
+Functions that perform calculations across rows related to current row.
+
+```sql
+ROW_NUMBER() OVER (PARTITION BY category ORDER BY price)
+```
+
+## What is a CTE (Common Table Expression)?
+
+A temporary named result set defined within a query
+
+```sql
+
+
+```
