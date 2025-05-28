@@ -41,7 +41,7 @@ Functions that execute during the request-response cycle, can modify req/res obj
 Objects that let you read/write data continuously. Types: Readable, Writable, Duplex, Transform
 
 ## What's the Buffer class?
-A global class for bundling binary data in Node.js
+A global class for bundling binary data in Node.js.
 
 ## What is cluster module?
 Allows creation of child processes that share server ports for load balancing.
@@ -163,6 +163,44 @@ ROW_NUMBER() OVER (PARTITION BY category ORDER BY price)
 A temporary named result set defined within a query
 
 ```sql
-
-
+WITH user_counts AS (
+    SELECT COUNT(*) FROM users
+)
 ```
+
+## What is PostgreSQL?
+
+An advanced open-source relational database with support for JSON, arrays, and custom types.
+
+## What are PostgreSQL-specific features?
+
+## How do you create an index for fast filtering?
+
+```sql
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_created_at ON users(created_at);
+```
+
+## What is EXPLAIN in PostgreSQL?
+
+Shows the execution plan for a query to help optimize performance.
+
+## What is vacuum in PostgreSQL?
+
+Process that reclaims storage occupied by dead tuples.
+
+## How do you handle JSON in PostgreSQL?
+
+Using JSON or JSONB types with operators like ->, ->>, @>, #>.
+
+## What is a partial index?
+
+An index built only on rows matching a condition
+
+```sql
+CREATE INDEX idx_active_users ON users(email) WHERE active = true;
+```
+
+## What are the isolation levels in PostgreSQL?
+
+Read Uncommitted, Read Committed, Repeatable Read, Serializable 
