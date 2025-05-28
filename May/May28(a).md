@@ -168,18 +168,60 @@ function promiseAll(promises) {
 
 ## 5. Deep Clone
 
+```js
+function deepClone(obj){
+    
+}
+```
 
 
 ## 6. Memoization 
+Create a memoize function that caches the results of expensive function calls.
 
+```js
+function memoize(fn){
+    const cache = new Map();
+
+    return function memoized(...args){
+        const key = JSON.stringify(args);
+
+        if (cache.has(key)){
+            return cache.get(key);
+        }
+
+        const result = fn.apply(this, args);
+        cache.set(key, result);
+        return result; 
+    };
+}
+```
 
 
 ## 7. Event Emitter 
+Implement a simple event emitter class with on, off, and emit methods
 
+```js
+
+
+
+```
 
 
 ## 8. Curry Function 
+Implement a curry function that transforms a function with multiple arguments into a sequence of functions.
 
+```js
+function curry(fn){
+    return function curried(...args){
+        if (args.length >= fn.length){
+            return fn.apply(this, args);
+        }
+        return function(...nextArgs){
+            return curried.apply(this, args.concat(nextArgs));    
+        };
+    };
+}
+```
 
 ## 9. Array Methods Implementation 
 
