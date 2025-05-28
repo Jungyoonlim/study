@@ -9,8 +9,10 @@ function debounce(fn, wait){
     let timeoutId; 
 
     return function debounced(...args){
+        // cancel the pending timerm 
         clearTimeout(timeoutId);
 
+        // schedule a brand-new timer to go off after `wait` 
         timeoutId = setTimeout(() => {
             fn.apply(this, args);
         }, wait);
@@ -22,6 +24,13 @@ Debounce ensures that a function is only called after a certain quiet period has
 
 - You bounce rapid fire calls into one eventual call. 
 - Used for things like keystroke-driven searches, window-resize handlers, or any scenario where you don't want to flood an API or handler with too many calls. 
+
+---
+Declare a higher-order function named `debounce` that takes `fn` (the function you want to debounce) and `wait`: the quiet period in ms after which `fn` should finally run. 
+
+
+Return the wrapper function (debounced) that closes over `timeoutId`, `fn`, `delay`. 
+`...args` collects whatever arguments that caller passes in. 
 
 
 
