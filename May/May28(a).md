@@ -18,6 +18,14 @@ function debounce(fn, wait){
 }
 ```
 
+Debounce ensures that a function is only called after a certain quiet period has elapsed since the last event. 
+
+- You bounce rapid fire calls into one eventual call. 
+- Used for things like keystroke-driven searches, window-resize handlers, or any scenario where you don't want to flood an API or handler with too many calls. 
+
+
+
+
 ## 2. Throttle
 
 Implement a throttle function that ensures a function is called at most once in a specified time period.
@@ -170,7 +178,7 @@ function promiseAll(promises) {
 
 ```js
 function deepClone(obj){
-    
+
 }
 ```
 
