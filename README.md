@@ -1,4 +1,36 @@
-# README: Topic-Based Index
+# Study Notes - Topic-Based Index
+
+A comprehensive collection of programming, web development, and computer science study notes organized by topic with direct links to detailed explanations and implementations.
+
+## 📚 Table of Contents
+
+### Frontend Technologies
+- [JavaScript](#javascript) - Fundamentals, Advanced Functions, Event Loop, Browser APIs
+- [TypeScript](#typescript) - Types, Utility Types, Advanced Features  
+- [React](#react) - Components, Hooks, State Management
+- [CSS](#css) - Layout, Positioning, Advanced Properties, Preprocessors
+
+### Backend & Infrastructure  
+- [Node.js](#nodejs) - Runtime, Event Loop, Streams, HTTP Servers
+- [Django](#django) - MVT Architecture, ORM, URL Routing, Templates
+- [SQL](#sql) - Queries, Joins, Optimization, Transactions
+- [PostgreSQL](#postgresql) - Advanced Features, JSON, Performance
+- [Docker](#docker) - Containerization
+
+### System Design & Architecture
+- [System Design](#system-design) - CDN, Load Balancing, Caching, Scalability
+- [Web Development](#web-development) - Performance, Security, Browser APIs
+
+### Specialized Topics
+- [WebGL and Graphics](#webgl-and-graphics) - Shaders, GPU Programming
+- [Design Systems](#design-systems) - Component Architecture, Tokens
+- [Data Structures & Algorithms](#data-structures--algorithms) - Complexity, Sorting, Trees, Graphs
+- [Operating Systems](#operating-systems) - Memory, Processes, Hardware
+
+### Study Resources
+- [Interview Preparation](#interview-preparation) - MCQs, Common Questions
+
+---
 
 ## JavaScript
 - **Basics, Variable Declarations, Hoisting, Constants** [(Mar3.md)](March/Mar3.md)
@@ -244,4 +276,16 @@
 - **System Bus** [(April16.md)](April/April16.md), [(April17.md)](April/April17.md)
 - **Memory Types (Register, Main Memory, Cache)** [(April16.md)](April/April16.md), [(April17.md)](April/April17.md)
 - **Instruction Execution Cycle** [(April16.md)](April/April16.md), [(April17.md)](April/April17.md)
-- **Interrupts** [(April16.md)](April/April16.md), [(April17.md)](April/April17.md) 
+- **Interrupts** [(April16.md)](April/April16.md), [(April17.md)](April/April17.md)
+
+---
+
+## 🗺️ Navigation
+
+For chronological study progression, see the main [Study Index](study_index.md) organized by date.
+
+💡 **Quick Search Tips:**
+- Use `Ctrl/Cmd + F` to search for specific topics
+- Click the topic headers to jump to sections  
+- Many topics have both English and Korean versions
+- Links marked with dates show chronological learning progression 
