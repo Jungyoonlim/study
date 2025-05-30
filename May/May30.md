@@ -1,4 +1,4 @@
-# Node.js / SQL / Postgres 정리 (한국어)
+# Node.js / SQL / Postgres 정리 
 
 ## Node.js 
 
