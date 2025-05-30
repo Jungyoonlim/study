@@ -170,6 +170,146 @@
 
 [View notes](May/May11.md)
 
+### May 13
+- JavaScript Front-End Interview Preparation
+  - Debounce Implementation (JS & TS)
+  - Array.prototype.reduce
+  - Throttle Implementation
+  - Array Flatten Techniques
+- JavaScript `this` Context Review
+- Closures Review
+  - Lexical Scoping, Static Scope
+  - Practical Examples and Use Cases
+  - Common Patterns (for loops, timeouts)
+
+[View notes (English)](May/May13.md) | [View notes (Korean)](May/May13(a).md) | [View design system notes](May/May13(b).md)
+
+### May 13 - MCQ Practice
+- Comprehensive Multiple Choice Questions
+  - JavaScript: Variables, Hoisting, Closures, Event Loop
+  - CSS: Box Model, Positioning, Specificity, Responsive Design
+  - HTML: Script Loading, Storage APIs
+  - Browser: Performance, Internationalization
+  - Advanced CSS: Grid, Flexbox, Animations, Preprocessors
+
+[View MCQ (English)](May/May13-MCQ.md) | [View MCQ (Korean)](May/May13(c).md)
+
+### May 17
+- Django Web Framework
+  - MVT (Model-View-Template) Architecture
+  - Django vs MVC Pattern
+  - Model Definition and ORM
+  - URL Configuration and Routing
+  - View Implementation (Function-Based & Class-Based)
+  - Template System
+  - Forms and POST Data Handling
+  - Database Migrations
+
+[View notes](May/May17.md)
+
+### May 19
+- Design System Fundamentals
+  - Core Values: Consistency, Efficiency, Scalability
+  - Component Hierarchy: Tokens → Primitives → Composites → Patterns
+  - Design Tokens (Colors, Typography, Spacing)
+  - Component Architecture
+  - Documentation and Governance
+
+[View notes](May/May19.md)
+
+### May 20
+- Docker
+  - Reference Links and Resources
+
+[View notes](May/May20.md)
+
+### May 21
+- System Design Fundamentals
+  - CDN (Content Delivery Network)
+  - Redis Caching
+  - Load Balancing
+  - Rate Limiting
+  - File Storage Solutions (AWS S3, Supabase)
+  - Presigned URLs
+  - Monitoring and Observability
+  - Database Sharding/Partitioning
+- SQL Basics Review
+  - CRUD Operations
+  - Database Normalization
+  - JOIN Types
+  - Transactions and ACID
+  - Primary/Foreign Keys
+  - PostgreSQL Data Types
+
+[View notes](May/May21.md)
+
+### May 25
+- WebGL Shaders
+  - GPU Programming Fundamentals
+  - Vertex Shaders vs Fragment Shaders
+  - GLSL (OpenGL Shading Language)
+  - Graphics Pipeline
+  - Shader Processing Flow
+  - JavaScript WebGL Integration
+
+[View notes](May/May25.md)
+
+### May 28
+- Node.js Fundamentals
+  - Runtime, Event Loop, Phases
+  - `process.nextTick()` vs `setImmediate()`
+  - HTTP Server Creation
+  - `require` Function, Middleware
+  - Streams, Buffer Class
+  - Cluster Module, EventEmitter
+  - Error Handling
+- SQL Fundamentals  
+  - Basic Commands (SELECT, INSERT, UPDATE, DELETE)
+  - Keys (PRIMARY, FOREIGN)
+  - Pagination (OFFSET vs Cursor-based)
+  - Indexes and Query Optimization
+  - Normalization and Normal Forms
+  - Transactions and ACID Properties
+  - Views, Stored Procedures
+  - Aggregate Functions, GROUP BY, HAVING
+  - Subqueries, Window Functions, CTE
+- PostgreSQL Features
+  - Advanced Data Types (JSON, JSONB)
+  - EXPLAIN, VACUUM
+  - Partial Indexes
+  - Isolation Levels
+
+[View notes](May/May28.md)
+
+### May 28 - Additional Content
+- JavaScript/TypeScript Function Implementation Review
+  - Debounce (Advanced Implementation)
+  - Throttle (Leading & Trailing Edge)
+  - Array Flatten (Recursive & Iterative)
+  - Promise.all Implementation
+  - Deep Clone (Partial)
+- Interview Questions Collection
+  - JavaScript: Closures, Event Loop, Modules
+  - TypeScript: Utility Types, Discriminated Unions
+  - Node.js: Event Loop, Streams, Scaling
+  - SQL/PostgreSQL: Indexes, CTEs, Many-to-Many
+  - System Design: State Management, Patterns
+
+[View function implementations](May/May28(a).md) | [View interview questions](May/May28(b).md)
+
+### May 29
+- JavaScript Function Practice (Work in Progress)
+  - Debounce and Throttle Implementation Practice
+
+[View notes](May/May29.md)
+
+### May 30
+- Node.js / SQL / PostgreSQL 정리 (Korean Translation)
+  - Complete Korean translation of May 28 content
+  - All Node.js, SQL, and PostgreSQL concepts in Korean
+
+[View notes](May/May30.md)
+
 ---
 
 # Navigation
